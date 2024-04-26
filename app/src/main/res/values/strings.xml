@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">TodoList</string>
+    <string name="item_menu1">Nhiệm vụ</string>
+    <string name="item_menu2">Lịch</string>
+</resources>
