@@ -55,7 +55,7 @@ class Database(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, null
             missionList.add(mission)
         }
         cursor.close()
-//        db.close()
+        db.close()
         return missionList
     }
 
