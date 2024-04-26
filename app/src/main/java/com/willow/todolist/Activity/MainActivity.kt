@@ -39,10 +39,9 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.date.text = current.toString()
         db = Database(this)
 
-        missionAdapter = MissionAdapter(db.getByDate(date), this)
+        missionAdapter = MissionAdapter(db.getAllMission(), this)
         binding.recyclerView.layoutManager = LinearLayoutManager(this)
         binding.recyclerView.adapter = missionAdapter
 
@@ -55,7 +54,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onResume() {
         super.onResume()
-        missionAdapter.refreshData(db.getByDate(date))
+        missionAdapter.refreshData(db.getAllMission())
     }
 
     private fun addMission() {

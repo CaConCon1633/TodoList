@@ -23,6 +23,7 @@ class MissionAdapter(private var missions: List<Mission>, context: Context) :
     class MissionViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val content: TextView = itemView.findViewById(R.id.txtContent)
         val time: TextView = itemView.findViewById(R.id.time)
+        val date: TextView = itemView.findViewById(R.id.date)
         val status: CheckBox = itemView.findViewById(R.id.btn_check)
 
     }
@@ -38,6 +39,7 @@ class MissionAdapter(private var missions: List<Mission>, context: Context) :
         val mission = missions[position]
         holder.content.text = mission.content
         holder.time.text = mission.time
+        holder.date.text = mission.date
         db = Database(holder.itemView.context)
 
         holder.status.setOnCheckedChangeListener { _, isChecked ->

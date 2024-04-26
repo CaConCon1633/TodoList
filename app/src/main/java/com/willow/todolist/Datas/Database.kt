@@ -42,7 +42,7 @@ class Database(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, null
     fun getAllMission(): List<Mission> {
         val missionList = mutableListOf<Mission>()
         val db = readableDatabase
-        val query = "SELECT * FROM $TABLE_NAME"
+        val query = "SELECT * FROM mission ORDER BY DATE , TIME"
         val cursor = db.rawQuery(query, null)
 
         while (cursor.moveToNext()) {
@@ -55,7 +55,7 @@ class Database(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, null
             missionList.add(mission)
         }
         cursor.close()
-        db.close()
+//        db.close()
         return missionList
     }
 
@@ -108,7 +108,7 @@ class Database(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, null
     fun getByDate(date: String): List<Mission> {
         val missionList = mutableListOf<Mission>()
         val db = readableDatabase
-        val query = "SELECT * FROM mission WHERE DATE = \"$date\""
+        val query = "SELECT * FROM mission WHERE DATE = \"$date\" ORDER BY TIME"
         val cursor = db.rawQuery(query, null)
 
         while (cursor.moveToNext()) {
